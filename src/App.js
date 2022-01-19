@@ -1,3 +1,4 @@
+
 import logo from './logo.svg';
 import Home from './components/Home';
 import { Routes, Route } from 'react-router-dom';
@@ -6,14 +7,19 @@ import {
   getRecipe,
   getRecipeBySearch,
   getIngredientsByRecipeId,
-} from './utils';
+} from "./utils";
+import Search from "./components/Search/Search";
 
 function App() {
   return (
-    <Routes>
-      <Route path='/' element={<Home />} />
-    </Routes>
+    <div>
+        <Search getRecipeBySearch={getRecipeBySearch} />
+        {/* <button onClick={() => getIngredientsByRecipeId()}>Get Data</button> */}
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
+    </div>
   );
-}
+};
 
 export default App;
