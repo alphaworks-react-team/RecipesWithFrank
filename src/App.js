@@ -1,16 +1,18 @@
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import Home from './components/Home';
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
 import {
   getRecipe,
   getRecipeBySearch,
   getIngredientsByRecipeId,
-} from "./utils";
+} from './utils';
 
 function App() {
   return (
-    <div className="App">
-      <button onClick={() => getIngredientsByRecipeId()}>Get Data</button>
-    </div>
+    <Routes>
+      <Route path='/' element={<Home />} />
+    </Routes>
   );
 }
 
