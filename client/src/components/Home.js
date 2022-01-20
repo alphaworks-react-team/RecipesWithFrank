@@ -4,8 +4,10 @@ import Search from "./Search/Search";
 import styled from "styled-components";
 import { getRecipeBySearch } from "../utils";
 
-const JumbotronText = styled.h1`
+const JumbotronText = styled.p`
+  font-size: 26px;
   padding: 0;
+  position: relative;
 `;
 
 const HomeContainer = styled.div`
@@ -60,7 +62,9 @@ const Home = () => {
   return (
     <div>
       <Jumbotron>
-        <JumbotronText>Recipes With Frank</JumbotronText>
+        <JumbotronText>
+          Explore over <strong>2</strong> recipes With Frank.
+        </JumbotronText>
         <Search getRecipeBySearch={getRecipeBySearch} setRecipes={setRecipes} />
       </Jumbotron>
       <HomeContainer>
