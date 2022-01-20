@@ -56,7 +56,6 @@ const Search = ({ getRecipeBySearch, setRecipes }) => {
   };
 
   return (
-<<<<<<< HEAD:src/components/Search/Search.js
     <SearchContainer>
       <AiOutlineSearch
         style={{ marginLeft: "1rem", position: "absolute" }}
@@ -66,12 +65,6 @@ const Search = ({ getRecipeBySearch, setRecipes }) => {
       <SearchInput onChange={onChange} placeholder="Search recipe..." />
       <SearchButton onClick={onSubmit}>Search</SearchButton>
     </SearchContainer>
-=======
-    <form onSubmit={onSubmit}>
-      <input onChange={onChange} placeholder="Search Frank" />
-      <button onClick={onSubmit}>Search</button>
-    </form>
->>>>>>> main:client/src/components/Search/Search.js
   );
 };
 
