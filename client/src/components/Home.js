@@ -38,7 +38,7 @@ const RecipeTitle = styled.h3`
 
 const ImageContainer = styled.div`
   display: block;
-  transition: transform 0.4s;
+  transition: transform 0.35s;
 `;
 
 const RecipeImage = styled.div`
