@@ -32,14 +32,10 @@ export const getRecipeBySearch = async (search = "pasta") => {
     const recipeIds = res.data.results;
     const recipes = [];
     for (let value of Object.values(recipeIds)) {
-      let data = await axios.get(
-        `
-      https://api.spoonacular.com/recipes/${value.id}/information?apiKey=${API}&nutrition=true
-      `,
-        { headers: headers }
-      );
+      let data = value.id;
       recipes.push(data.data);
     }
+    console.log(recipes);
     return recipes;
   } catch (error) {
     console.log(error);

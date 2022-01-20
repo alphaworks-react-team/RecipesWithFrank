@@ -8,11 +8,12 @@ import {
   getIngredientsByRecipeId,
 } from "./utils";
 import Search from "./components/Search/Search";
+import NavBar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div>
-      {/* <button onClick={() => getIngredientsByRecipeId()}>Get Data</button> */}
+      <NavBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
       </Routes>
