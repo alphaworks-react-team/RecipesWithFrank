@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 
-const Search = ({ getRecipeBySearch }) => {
+const Search = ({ getRecipeBySearch, setRecipes }) => {
   const [search, setSearch] = useState("");
 
   const onChange = (e) => {
     setSearch(e.target.value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    getRecipeBySearch(search);
+    const result = await getRecipeBySearch(search);
+    console.log("search", result);
+    setRecipes(result);
   };
 
   return (
-    <div>
+    <form onSubmit={onSubmit}>
       <input onChange={onChange} placeholder="Search Frank" />
       <button onClick={onSubmit}>Search</button>
-    </div>
+    </form>
   );
 };
 
