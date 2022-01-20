@@ -1,8 +1,7 @@
-
-import logo from './logo.svg';
-import Home from './components/Home';
-import { Routes, Route } from 'react-router-dom';
-import './App.css';
+import logo from "./logo.svg";
+import Home from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
 import {
   getRecipe,
   getRecipeBySearch,
@@ -13,13 +12,12 @@ import Search from "./components/Search/Search";
 function App() {
   return (
     <div>
-        <Search getRecipeBySearch={getRecipeBySearch} />
-        {/* <button onClick={() => getIngredientsByRecipeId()}>Get Data</button> */}
+      {/* <button onClick={() => getIngredientsByRecipeId()}>Get Data</button> */}
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route exact path="/" element={<Home />} />
       </Routes>
     </div>
   );
-};
+}
 
 export default App;
