@@ -1,6 +1,10 @@
 import axios from "axios";
 const API = process.env.REACT_APP_API_KEY;
 
+const headers = {
+  "Content-Type": "application/json",
+};
+
 export const getRecipe = async () => {
   try {
     console.log(API);
@@ -8,9 +12,7 @@ export const getRecipe = async () => {
     const res = await axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}`,
       {
-        headers: {
-          "Content-type": "application/json",
-        },
+        headers: headers,
       }
     );
     console.log("response?", res.data.results);
@@ -24,12 +26,21 @@ export const getRecipeBySearch = async (search = "pasta") => {
     const res = await axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}&query=${search}`,
       {
-        headers: {
-          "Content-type": "application/json",
-        },
+        headers: headers,
       }
     );
-    console.log(res);
+    const recipeIds = res.data.results;
+    const recipes = [];
+    for (let value of Object.values(recipeIds)) {
+      let data = await axios.get(
+        `
+      https://api.spoonacular.com/recipes/${value.id}/information?apiKey=${API}&nutrition=true
+      `,
+        { headers: headers }
+      );
+      recipes.push(data.data);
+    }
+    return recipes;
   } catch (error) {
     console.log(error);
   }
@@ -40,9 +51,7 @@ export const getIngredientsByRecipeId = async (id = "1003464") => {
     const res = await axios.get(
       `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${API}`,
       {
-        headers: {
-          "Content-type": "application/json",
-        },
+        headers: headers,
       }
     );
     console.log(res);
