@@ -4,7 +4,6 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 const SearchContainer = styled.div`
   width: 50%;
-  background: gray;
   display: flex;
   align-items: center;
   position: relative;
