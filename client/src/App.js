@@ -51,12 +51,22 @@ function App() {
     } else if (savedUser === user && savedPassword === password) {
       setAuthError(false);
       setAuth(true);
-      document.querySelector(".username").value = "";
-      document.querySelector(".password").value = "";
+      document.querySelector("#username").value = "";
+      document.querySelector("#password").value = "";
     }
   };
 
-  const signUp = (e, user, password) => {};
+  const signUp = (e, user, password) => {
+    e.preventDefault()
+    if(!user || !password){
+      setAuthError(true)
+    }
+
+    localStorage.setItem("user", JSON.stringify(user))
+    localStorage.setItem("password", JSON.stringify(password))
+    document.getElementById("user").value = ""
+    document.getElementById("password").value = ""
+  };
 
   return (
     <div>
