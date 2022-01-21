@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //components
+
+import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar.js";
-import Home from "./components/Home";
 import Login from "./components/Login/Login";
 //routes
 import { Routes, Route } from "react-router-dom";
