@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 //components
 
 import Home from "./components/Home/Home";
+import Navbar from "./components/Navbar/Navbar.js";
 import Login from "./components/Login/Login";
 //routes
 import { Routes, Route } from "react-router-dom";
@@ -16,7 +17,6 @@ import "./App.css";
 //   getIngredientsByRecipeId,
 // } from "./utils";
 // import Search from "./components/Search/Search";
-import NavBar from "./components/Navbar/Navbar";
 
 function App() {
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div>
-      <NavBar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
