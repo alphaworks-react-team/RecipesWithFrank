@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.js";
 import Home from "./components/Home";
 import Login from "./components/Login/Login";
+import SignUp from "./components/Login/SignUp.js";
 //routes
 import { Routes, Route } from "react-router-dom";
 
@@ -55,6 +56,8 @@ function App() {
     }
   };
 
+  const signUp = (e, user, password) => {};
+
   return (
     <div>
       <Navbar />
@@ -71,6 +74,21 @@ function App() {
               password={password}
               authUser={authUser}
               username={username}
+            />
+          }
+        />
+        <Route
+          exact
+          path="/signup"
+          element={
+            <SignUp
+              getUser={getUser}
+              getPassword={getPassword}
+              user={user}
+              password={password}
+              authUser={authUser}
+              username={username}
+              signUp={signUp}
             />
           }
         />

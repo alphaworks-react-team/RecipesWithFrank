@@ -140,7 +140,7 @@ const NavBar = () => {
         </div>
         <Button navColor={navColor}>
           <Link style={linkStyling} to="/">
-            <ButtonATag navColor={navColor}>Join For Free</ButtonATag>
+            <ButtonATag navColor={navColor} to="signup">Join For Free</ButtonATag>
           </Link>
         </Button>
       </div>
