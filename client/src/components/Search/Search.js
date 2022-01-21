@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 
-const SearchContainer = styled.div`
+const SearchContainer = styled.form`
   width: 50%;
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@ const Search = ({ getRecipeBySearch, setRecipes }) => {
   };
 
   return (
-    <SearchContainer>
+    <SearchContainer onSubmit={onSubmit}>
       <AiOutlineSearch
         style={{ marginLeft: "1rem", position: "absolute" }}
         color="gray"

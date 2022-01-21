@@ -33,14 +33,24 @@ const RecipeCard = styled.div`
   overflow: hidden;
 `;
 
+const RecipeDetailsContainer = styled.div`
+  padding: 10px 15px 15px 15px;
+  display: flex;
+  flex-direction: column;
+`;
+
 const RecipeTitle = styled.h3`
-  margin: 10px 0;
-  padding-left: 10px;
+  margin: 0;
+  margin-bottom: 10px;
+`;
+
+const RecipeDetailsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const ImageContainer = styled.div`
-  display: block;
-  transition: transform 0.35s;
+  overflow: hidden;
 `;
 
 const RecipeImage = styled.div`
@@ -51,8 +61,10 @@ const RecipeImage = styled.div`
   background-position: center;
   background-size: cover;
   border-radius: 12px 12px 0 0;
+  transition: all 0.5s;
+  position: relative;
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.08);
     transform-origin: 50% 50%;
   }
 `;
@@ -74,7 +86,13 @@ const Home = () => {
               <ImageContainer>
                 <RecipeImage src={recipes?.image} />
               </ImageContainer>
-              <RecipeTitle>{recipes.title}</RecipeTitle>
+              <RecipeDetailsContainer>
+                <RecipeTitle>{recipes.title}</RecipeTitle>
+                <RecipeDetailsWrapper>
+                  <div>cooktime</div>
+                  <div>nutrition</div>
+                </RecipeDetailsWrapper>
+              </RecipeDetailsContainer>
             </RecipeCard>
           ))}
         </RecipeContainer>
