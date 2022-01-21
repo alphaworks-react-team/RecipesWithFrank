@@ -70,3 +70,17 @@ export const getIngredientsByRecipeId = async (id = "1003464") => {
     console.log(error);
   }
 };
+
+export const getPopularRecipes = async (func) => {
+  try {
+    const res = await axios.get(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}&addRecipeInformation=true&addRecipeNutrition=true&instructionsRequired=true&sort=popularity&sortDirection=asc`,
+      {
+        headers: headers,
+      }
+    );
+    func(res.data.results);
+  } catch (error) {
+    console.log(error);
+  }
+};

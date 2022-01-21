@@ -23,6 +23,7 @@ export const RecipeContainer = styled.div`
 `;
 
 export const RecipeCard = styled.div`
+  width: 500px;
   margin: 15px;
   background-color: pink;
   border-radius: 15px;
