@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //components
-
+import Navbar from "./components/Navbar/Navbar.js";
 import Home from "./components/Home";
 import Login from "./components/Login/Login";
 //routes
@@ -16,7 +16,6 @@ import "./App.css";
 //   getIngredientsByRecipeId,
 // } from "./utils";
 // import Search from "./components/Search/Search";
-import NavBar from "./components/Navbar/Navbar";
 
 function App() {
   const navigate = useNavigate();
@@ -58,7 +57,7 @@ function App() {
 
   return (
     <div>
-      <NavBar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

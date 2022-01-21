@@ -132,7 +132,7 @@ const NavBar = () => {
       >
         {/* Login and Sign up button */}
         <div>
-          <Link style={linkStyling} to="/">
+          <Link style={linkStyling} to="/login">
             <A navColor={navColor} style={{ marginRight: "30px" }}>
               Login In
             </A>
