@@ -132,14 +132,16 @@ const NavBar = () => {
       >
         {/* Login and Sign up button */}
         <div>
-          <A navColor={navColor} style={{ marginRight: "30px" }} href="/">
-            Login In
-          </A>
+          <Link style={linkStyling} to="/">
+            <A navColor={navColor} style={{ marginRight: "30px" }}>
+              Login In
+            </A>
+          </Link>
         </div>
         <Button navColor={navColor}>
-          <ButtonATag navColor={navColor} href="/">
-            Join For Free
-          </ButtonATag>
+          <Link style={linkStyling} to="/">
+            <ButtonATag navColor={navColor}>Join For Free</ButtonATag>
+          </Link>
         </Button>
       </div>
     </div>
