@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import BackgroundImage from "../assets/BackgroundImage.jpeg";
+// import BackgroundImage from "../assets/BackgroundImage.jpeg";
 
 const JumbotronContainer = styled.div`
   height: 400px;
-  background-image: url(${BackgroundImage});
+  background-image: black;
   background-size: cover;
   color: white;
   display: flex;
