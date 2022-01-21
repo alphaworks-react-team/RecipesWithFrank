@@ -16,6 +16,7 @@ import "./App.css";
 //   getIngredientsByRecipeId,
 // } from "./utils";
 // import Search from "./components/Search/Search";
+import NavBar from "./components/Navbar/Navbar";
 
 function App() {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ function App() {
 
   return (
     <div>
-      <Navbar />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
