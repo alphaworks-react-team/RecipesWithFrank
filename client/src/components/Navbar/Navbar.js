@@ -30,9 +30,30 @@ const navBarStyling = {
   },
 };
 
-const linkStyling = {
-  textDecoration: "none",
-};
+const StyledLink = styled(Link)`
+  font-size: 18px;
+  font-weight: 500;
+  color: ${(props) => (props.navColor ? "black" : "white")};
+  margin: 0 10px;
+  padding: 5px 0;
+  text-decoration: none;
+  &:hover {
+    border-bottom: ${(props) =>
+      props.navColor ? "2px solid rgb(25, 200, 140)" : "2px solid white"};
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const StyleButtonLink = styled(Link)`
+  text-decoration: none;
+  color: ${(props) => (props.navColor ? "white" : "rgb(25, 200, 140)")};
+  font-size: 16px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
 
 const Button = styled.div`
   width: 120px;
@@ -57,24 +78,6 @@ const Button = styled.div`
   }
 `;
 
-const A = styled.a`
-  font-size: 18px;
-  font-weight: 500;
-  color: ${(props) => (props.navColor ? "black" : "white")};
-  margin: 0 10px;
-  padding: 5px 0;
-  text-decoration: none;
-  &:hover {
-    border-bottom: ${(props) =>
-      props.navColor ? "2px solid rgb(25, 200, 140)" : "2px solid white"};
-  }
-`;
-const ButtonATag = styled.a`
-  text-decoration: none;
-  color: ${(props) => (props.navColor ? "white" : "rgb(25, 200, 140)")};
-  font-size: 16px;
-`;
-
 const NavBar = () => {
   // State to handle conditional render && event handling
   const [navColor, setNavColor] = useState(false);
@@ -96,35 +99,33 @@ const NavBar = () => {
       }
     >
       {/* Logo */}
-
       <div style={{ width: "226px", paddingLeft: "80px" }}>
-        <Link style={linkStyling} to="/">
-          <A
-            navColor={navColor}
-            style={{ fontSize: "25px", fontWeight: "700" }}
-          >
-            Logo
-          </A>
-        </Link>
+        <StyledLink
+          style={{ fontSize: "24px", fontWeight: "700" }}
+          navColor={navColor}
+          to="/"
+        >
+          Logo
+        </StyledLink>
       </div>
       {/* Nav Items */}
       <div style={{ display: "flex" }}>
         <div style={{ justifyContent: "center" }}>
-          <Link style={linkStyling} to="/">
-            <A navColor={navColor}>Nav Item</A>
-          </Link>
-          <Link style={linkStyling} to="/">
-            <A navColor={navColor}>Nav Item</A>
-          </Link>
-          <Link style={linkStyling} to="/">
-            <A navColor={navColor}>Nav Item</A>
-          </Link>
-          <Link style={linkStyling} to="/">
-            <A navColor={navColor}>Nav Item</A>
-          </Link>
-          <Link style={linkStyling} to="/">
-            <A navColor={navColor}>Nav Item</A>
-          </Link>
+          <StyledLink navColor={navColor} to="/">
+            NAV
+          </StyledLink>
+          <StyledLink navColor={navColor} to="/">
+            NAV
+          </StyledLink>
+          <StyledLink navColor={navColor} to="/">
+            NAV
+          </StyledLink>
+          <StyledLink navColor={navColor} to="/">
+            NAV
+          </StyledLink>
+          <StyledLink navColor={navColor} to="/">
+            NAV
+          </StyledLink>
         </div>
       </div>
       <div
@@ -132,16 +133,18 @@ const NavBar = () => {
       >
         {/* Login and Sign up button */}
         <div>
-          <Link style={linkStyling} to="/login">
-            <A navColor={navColor} style={{ marginRight: "30px" }}>
-              Login In
-            </A>
-          </Link>
+          <StyledLink
+            style={{ marginRight: "20px" }}
+            navColor={navColor}
+            to="/login"
+          >
+            Login In
+          </StyledLink>
         </div>
         <Button navColor={navColor}>
-          <Link style={linkStyling} to="/">
-            <ButtonATag navColor={navColor}>Join For Free</ButtonATag>
-          </Link>
+          <StyleButtonLink navColor={navColor} to="/">
+            Join For Free
+          </StyleButtonLink>
         </Button>
       </div>
     </div>
