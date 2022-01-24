@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BackgroundImage from "../../assets/BackgroundImage.jpeg";
 
 const JumbotronContainer = styled.div`
-  height: 400px;
+  height: 652px;
   background-image: url(${BackgroundImage});
   background-size: cover;
   color: white;
