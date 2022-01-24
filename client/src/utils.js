@@ -74,7 +74,7 @@ export const getIngredientsByRecipeId = async (id = "1003464") => {
 export const getPopularRecipes = async (func) => {
   try {
     const res = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}&addRecipeInformation=true&addRecipeNutrition=true&instructionsRequired=true&sort=popularity&sortDirection=asc`,
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}&addRecipeInformation=true&addRecipeNutrition=true&instructionsRequired=true&sort=popularity&sortDirection=desc`,
       {
         headers: headers,
       }

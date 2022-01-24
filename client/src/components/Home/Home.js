@@ -18,10 +18,12 @@ import {
   ToolTipText,
   ToolTipBox,
   RecipeTitle,
+  Header,
 } from "./home.styles";
 
 const Home = () => {
   const [recipes, setRecipes] = useState();
+  const [title, setTitle] = useState();
 
   useEffect(() => {
     getPopularRecipes(setRecipes);
@@ -33,10 +35,19 @@ const Home = () => {
         <JumbotronText>
           Explore over <strong>2</strong> recipes With Frank.
         </JumbotronText>
-        <Search getRecipeBySearch={getRecipeBySearch} setRecipes={setRecipes} />
+        <Search
+          getRecipeBySearch={getRecipeBySearch}
+          setRecipes={setRecipes}
+          setTitle={setTitle}
+        />
       </Jumbotron>
       <HomeContainer>
         <RecipeContainer>
+          <Header>
+            {title === undefined
+              ? "Popular Recipes"
+              : `You searched for ${title}...`}
+          </Header>
           {recipes?.map((recipes, index) => (
             <RecipeCard key={index}>
               <ImageContainer>

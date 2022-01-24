@@ -40,7 +40,7 @@ const SearchButton = styled.button`
   }
 `;
 
-const Search = ({ getRecipeBySearch, setRecipes }) => {
+const Search = ({ getRecipeBySearch, setRecipes, setTitle }) => {
   const [search, setSearch] = useState("");
 
   const onChange = (e) => {
@@ -48,10 +48,15 @@ const Search = ({ getRecipeBySearch, setRecipes }) => {
   };
 
   const onSubmit = async (e) => {
-    e.preventDefault();
-    const result = await getRecipeBySearch(search);
-    console.log("search", result);
-    setRecipes(result);
+    try {
+      e.preventDefault();
+      const result = await getRecipeBySearch(search);
+      console.log("search", result);
+      setRecipes(result);
+      setTitle(search);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -17,9 +17,14 @@ export const RecipeContainer = styled.div`
   padding: 20px;
   background-color: beige;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: wrap;
   align-items: center;
   justify-content: center;
+`;
+
+export const Header = styled.h1`
+  width: 1030px;
+  // padding: 20px;
 `;
 
 export const RecipeCard = styled.div`
