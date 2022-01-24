@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 const SignUp = ({signUp, user, password, getPassword, getUser}) => {
   const navigate = useNavigate()
+  
+
   return (
     <>
     <h1>Welcome to Recipes With Frank</h1>

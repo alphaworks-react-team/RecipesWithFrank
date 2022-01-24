@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {FormContainer} from './LogsStyles'
+import { useParams } from "react-router-dom";
+
 const Login = ({ getUser, getPassword, authUser}) => {
-
-
+  
 
   return (
     <>
