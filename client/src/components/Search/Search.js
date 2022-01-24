@@ -37,6 +37,7 @@ const SearchButton = styled.button`
   width: 200px;
   :hover {
     background: #275f95;
+    cursor: pointer;
   }
 `;
 
