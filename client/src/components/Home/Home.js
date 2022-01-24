@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Jumbotron from "./Jumbotron";
 import Search from "../Search/Search";
-import styled from "styled-components";
-import { getRecipeBySearch } from "../../utils";
+import { getRecipeBySearch, getPopularRecipes } from "../../utils";
 import { AiOutlineClockCircle, AiOutlineFire } from "react-icons/ai";
 import { GoPrimitiveDot } from "react-icons/go";
 import {
@@ -19,20 +18,36 @@ import {
   ToolTipText,
   ToolTipBox,
   RecipeTitle,
+  Header,
 } from "./home.styles";
 
 const Home = () => {
   const [recipes, setRecipes] = useState();
+  const [title, setTitle] = useState();
+
+  useEffect(() => {
+    getPopularRecipes(setRecipes);
+  }, []);
+
   return (
     <div>
       <Jumbotron>
         <JumbotronText>
           Explore over <strong>2</strong> recipes With Frank.
         </JumbotronText>
-        <Search getRecipeBySearch={getRecipeBySearch} setRecipes={setRecipes} />
+        <Search
+          getRecipeBySearch={getRecipeBySearch}
+          setRecipes={setRecipes}
+          setTitle={setTitle}
+        />
       </Jumbotron>
       <HomeContainer>
         <RecipeContainer>
+          <Header>
+            {title === undefined
+              ? "Popular Recipes"
+              : `You searched for ${title}...`}
+          </Header>
           {recipes?.map((recipes, index) => (
             <RecipeCard key={index}>
               <ImageContainer>
@@ -58,8 +73,8 @@ const Home = () => {
                       position="center"
                     />
                     <RecipeDetailText>
-                      {Math.floor(recipes.nutrition.nutrients[0].amount)}{" "}
-                      {recipes.nutrition.nutrients[0].name}
+                      {Math.floor(recipes.nutrition?.nutrients[0].amount)}{" "}
+                      {recipes.nutrition?.nutrients[0].name}
                     </RecipeDetailText>
                   </RecipeDetailGroupWrapper>
                   <RecipeDetailGroupWrapper>
@@ -101,11 +116,11 @@ const Home = () => {
                         ml="-23px"
                         positionLeft="5px"
                       >
-                        {recipes.nutrition.nutrients[8].name}
+                        {recipes.nutrition?.nutrients[8].name}
                       </ToolTipText>
                     </ToolTipBox>
                     <RecipeDetailText>
-                      {Math.floor(recipes.nutrition.nutrients[8].amount)}g
+                      {Math.floor(recipes.nutrition?.nutrients[8].amount)}g
                     </RecipeDetailText>
                     <ToolTipBox>
                       <GoPrimitiveDot
@@ -123,11 +138,11 @@ const Home = () => {
                         ml="-22px"
                         positionLeft="5px"
                       >
-                        {recipes.nutrition.nutrients[1].name}
+                        {recipes.nutrition?.nutrients[1].name}
                       </ToolTipText>
                     </ToolTipBox>
                     <RecipeDetailText>
-                      {Math.floor(recipes.nutrition.nutrients[1].amount)}g
+                      {Math.floor(recipes.nutrition?.nutrients[1].amount)}g
                     </RecipeDetailText>
                   </RecipeDetailGroupWrapper>
                 </RecipeDetailsWrapper>
