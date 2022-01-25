@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import {FormContainer} from './LogsStyles'
+import { useParams } from "react-router-dom";
 
 const Login = ({ getUser, getPassword, authUser}) => {
-
-
+  
 
   return (
+    <>
+    <FormContainer>
     <form
       onSubmit={authUser}
     >
@@ -28,6 +31,8 @@ const Login = ({ getUser, getPassword, authUser}) => {
       </label>
       <input type="submit" value="Submit" />
     </form>
+    </FormContainer>
+    </>
   );
 };
 
