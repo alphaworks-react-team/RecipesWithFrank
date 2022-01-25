@@ -1,7 +1,8 @@
 import { useState } from "react";
 //components
+
+import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar.js";
-import Home from "./components/Home";
 import Login from "./components/Login/Login";
 import SignUp from "./components/Login/SignUp.js";
 //routes
