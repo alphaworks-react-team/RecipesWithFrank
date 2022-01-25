@@ -4,6 +4,7 @@ import { useState } from "react";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar.js";
 import Login from "./components/Login/Login";
+import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
 import SignUp from "./components/Login/SignUp.js";
 //routes
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
@@ -18,9 +19,9 @@ import "./App.css";
 // } from "./utils";
 // import Search from "./components/Search/Search";
 
-function App() {
+function App(props) {
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -54,7 +55,7 @@ function App() {
       setAuthError(false);
       setAuth(true);
       console.log(user, password);
-      navigate("/")
+      navigate("/");
       // document.querySelector("#username").value = "";
       // document.querySelector("#password").value = "";
     }
@@ -74,35 +75,35 @@ function App() {
     }
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("password", JSON.stringify(password));
-    navigate("/login")
+    navigate("/login");
     // document.getElementById("user").value = ""
     // document.getElementById("password").value = ""
   };
 
-
-
   return (
     <>
-      { location.pathname === '/login' || location.pathname === "/signup" ? null :
-      <Navbar />  }
+      {location.pathname === "/login" ||
+      location.pathname === "/signup" ? null : (
+        <Navbar />
+      )}
       <Routes>
-          <Route
-            exact
-            path="/signup"
-            element={
-              <SignUp
-                getUser={getUser}
-                getPassword={getPassword}
-                user={user}
-                password={password}
-                authUser={authUser}
-                user={user}
-                signUp={signUp}
-              />
-            }
-          />
-      
-          <Route exact path="/" element={<Home />} />
+        <Route
+          exact
+          path="/signup"
+          element={
+            <SignUp
+              getUser={getUser}
+              getPassword={getPassword}
+              user={user}
+              password={password}
+              authUser={authUser}
+              user={user}
+              signUp={signUp}
+            />
+          }
+        />
+
+        <Route exact path="/" element={<Home />} />
 
         <Route
           exact
@@ -118,6 +119,7 @@ function App() {
             />
           }
         />
+        <Route path="/recipes/:id" element={<RecipeDetails />} />
       </Routes>
     </>
   );

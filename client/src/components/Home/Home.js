@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Jumbotron from "./Jumbotron";
 import Search from "../Search/Search";
@@ -21,8 +22,14 @@ import {
   Header,
 } from "./home.styles";
 
-const Home = () => {
+const Home = (props) => {
   const [recipes, setRecipes] = useState();
+  const [recipeDetails, setRecipeDetails] = useState();
+
+  const navigate = useNavigate();
+  const getRecipeDetails = (id) => {
+    navigate(`/recipes/${id}`);
+  };
   const [title, setTitle] = useState();
 
   useEffect(() => {
@@ -51,7 +58,10 @@ const Home = () => {
           {recipes?.map((recipes, index) => (
             <RecipeCard key={index}>
               <ImageContainer>
-                <RecipeImage src={recipes?.image} />
+                <RecipeImage
+                  src={recipes?.image}
+                  onClick={() => setRecipeDetails(getRecipeDetails(recipes.id))}
+                />
               </ImageContainer>
               <RecipeDetailsContainer>
                 <RecipeTitle>{recipes.title}</RecipeTitle>
