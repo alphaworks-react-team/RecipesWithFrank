@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar.js";
 import Login from "./components/Login/Login";
+import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
 //routes
 import { Routes, Route } from "react-router-dom";
 
@@ -18,7 +19,7 @@ import "./App.css";
 // } from "./utils";
 // import Search from "./components/Search/Search";
 
-function App() {
+function App(props) {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -75,6 +76,7 @@ function App() {
             />
           }
         />
+        <Route path="/recipes/:id" element={<RecipeDetails />} />
       </Routes>
     </div>
   );

@@ -70,3 +70,18 @@ export const getIngredientsByRecipeId = async (id = "1003464") => {
     console.log(error);
   }
 };
+
+export const getRecipeDetails = async (id) => {
+  console.log(id);
+  try {
+    const res = await axios.get(
+      `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API}&includeNutrition=true`,
+      {
+        headers: headers,
+      }
+    );
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
