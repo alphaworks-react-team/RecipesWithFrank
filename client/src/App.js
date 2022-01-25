@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 //components
 
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar.js";
 import Login from "./components/Login/Login";
 import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
+import SignUp from "./components/Login/SignUp.js";
 //routes
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import "./App.css";
 //utilities
@@ -21,16 +21,16 @@ import "./App.css";
 
 function App(props) {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
   const [auth, setAuth] = useState(false);
   const [authError, setAuthError] = useState(false);
 
   const getUser = (e) => {
     console.log(e.target.value);
-    setUsername(e.target.value);
+    setUser(e.target.value);
   };
 
   const getPassword = (e) => {
@@ -43,25 +43,68 @@ function App(props) {
     // navigate("/");
     if (!user || !password) {
       setAuthError(true);
+      console.log("hey sign up");
     }
     const savedUser = JSON.parse(localStorage.getItem("user"));
     const savedPassword = JSON.parse(localStorage.getItem("password"));
     if (savedUser !== user && savedPassword !== password) {
       setAuthError(true);
-      alert("please sign up first");
+      alert("please sign up");
+      navigate("/signup");
     } else if (savedUser === user && savedPassword === password) {
       setAuthError(false);
       setAuth(true);
-      document.querySelector(".username").value = "";
-      document.querySelector(".password").value = "";
+      console.log(user, password);
+      navigate("/");
+      // document.querySelector("#username").value = "";
+      // document.querySelector("#password").value = "";
     }
   };
 
+  const showErr = (authError) => {
+    if (authError) {
+      console.log("not authorized");
+    }
+    return null;
+  };
+
+  const signUp = (e, user, password) => {
+    e.preventDefault();
+    if (!user || !password) {
+      setAuthError(true);
+    }
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("password", JSON.stringify(password));
+    navigate("/login");
+    // document.getElementById("user").value = ""
+    // document.getElementById("password").value = ""
+  };
+
   return (
-    <div>
-      <Navbar />
+    <>
+      {location.pathname === "/login" ||
+      location.pathname === "/signup" ? null : (
+        <Navbar />
+      )}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          exact
+          path="/signup"
+          element={
+            <SignUp
+              getUser={getUser}
+              getPassword={getPassword}
+              user={user}
+              password={password}
+              authUser={authUser}
+              user={user}
+              signUp={signUp}
+            />
+          }
+        />
+
+        <Route exact path="/" element={<Home />} />
+
         <Route
           exact
           path="/login"
@@ -72,13 +115,13 @@ function App(props) {
               user={user}
               password={password}
               authUser={authUser}
-              username={username}
+              user={user}
             />
           }
         />
         <Route path="/recipes/:id" element={<RecipeDetails />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
