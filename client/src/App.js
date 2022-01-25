@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar/Navbar.js";
 import Login from "./components/Login/Login";
 import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
 import SignUp from "./components/Login/SignUp.js";
+import FooterPremium from "./components/Footer/FooterPremium";
+import Footer from "./components/Footer/Footer";
 //routes
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
@@ -22,9 +24,9 @@ import "./App.css";
 function App(props) {
   const navigate = useNavigate();
   const location = useLocation();
-
-  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState("");
   const [auth, setAuth] = useState(false);
   const [authError, setAuthError] = useState(false);
 
@@ -56,8 +58,6 @@ function App(props) {
       setAuth(true);
       console.log(user, password);
       navigate("/");
-      // document.querySelector("#username").value = "";
-      // document.querySelector("#password").value = "";
     }
   };
 
@@ -104,7 +104,6 @@ function App(props) {
         />
 
         <Route exact path="/" element={<Home />} />
-
         <Route
           exact
           path="/login"
@@ -121,6 +120,8 @@ function App(props) {
         />
         <Route path="/recipes/:id" element={<RecipeDetails />} />
       </Routes>
+      <FooterPremium />
+      <Footer />
     </>
   );
 }
