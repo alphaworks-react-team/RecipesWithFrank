@@ -71,27 +71,30 @@ export const getIngredientsByRecipeId = async (id = "1003464") => {
   }
 };
 
-<<<<<<< HEAD
 export const getRecipeDetails = async (id) => {
   console.log(id);
   try {
     const res = await axios.get(
       `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API}&includeNutrition=true`,
-=======
-export const getPopularRecipes = async (func) => {
-  try {
-    const res = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}&addRecipeInformation=true&addRecipeNutrition=true&instructionsRequired=true&sort=popularity&sortDirection=desc`,
->>>>>>> main
       {
         headers: headers,
       }
     );
-<<<<<<< HEAD
     return res.data;
-=======
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getPopularRecipes = async (func) => {
+  try {
+    const res = await axios.get(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}&addRecipeInformation=true&addRecipeNutrition=true&instructionsRequired=true&sort=popularity&sortDirection=desc`,
+      {
+        headers: headers,
+      }
+    );
     func(res.data.results);
->>>>>>> main
   } catch (error) {
     console.log(error);
   }
