@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Login from "./components/Login/Login";
 import SignUp from "./components/Login/SignUp.js";
 //routes
-import { Routes, Route, useNavigate, useParams } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import "./App.css";
 //utilities
@@ -19,6 +19,7 @@ import "./App.css";
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation()
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -52,7 +53,7 @@ function App() {
       setAuthError(false);
       setAuth(true);
       console.log(user, password);
-      // navigate("/")
+      navigate("/")
       // document.querySelector("#username").value = "";
       // document.querySelector("#password").value = "";
     }
@@ -72,17 +73,18 @@ function App() {
     }
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("password", JSON.stringify(password));
+    navigate("/login")
     // document.getElementById("user").value = ""
     // document.getElementById("password").value = ""
   };
 
+
+
   return (
     <>
-      {/* <Navbar />  */}
+      { location.pathname === '/login' || location.pathname === "/signup" ? null :
+      <Navbar />  }
       <Routes>
-        {showErr(authError)}
-
-        {!auth ? (
           <Route
             exact
             path="/signup"
@@ -98,9 +100,8 @@ function App() {
               />
             }
           />
-        ) : (
+      
           <Route exact path="/" element={<Home />} />
-        )}
 
         <Route
           exact
