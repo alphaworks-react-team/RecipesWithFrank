@@ -29,6 +29,7 @@ function App(props) {
   const [user, setUser] = useState("");
   const [auth, setAuth] = useState(false);
   const [authError, setAuthError] = useState(false);
+  const [recipeDetails, setRecipeDetails] = useState();
 
   const getUser = (e) => {
     console.log(e.target.value);
@@ -86,6 +87,7 @@ function App(props) {
       location.pathname === "/signup" ? null : (
         <Navbar />
       )}
+
       <Routes>
         <Route
           exact
@@ -97,13 +99,17 @@ function App(props) {
               user={user}
               password={password}
               authUser={authUser}
-              user={user}
               signUp={signUp}
             />
           }
         />
 
-        <Route exact path="/" element={<Home />} />
+        <Route
+          exact
+          path="/"
+          element={<Home setRecipeDetails={setRecipeDetails} />}
+        />
+
         <Route
           exact
           path="/login"
@@ -114,11 +120,14 @@ function App(props) {
               user={user}
               password={password}
               authUser={authUser}
-              user={user}
             />
           }
         />
-        <Route path="/recipes/:id" element={<RecipeDetails />} />
+
+        <Route
+          path="/recipes/:id"
+          element={<RecipeDetails recipeDetails={recipeDetails} />}
+        />
       </Routes>
       <FooterPremium />
       <Footer />
