@@ -52,7 +52,6 @@ const Search = ({ getRecipeBySearch, setRecipes, setTitle }) => {
     try {
       e.preventDefault();
       const result = await getRecipeBySearch(search);
-      console.log("search", result);
       setRecipes(result);
       setTitle(search);
     } catch (error) {
