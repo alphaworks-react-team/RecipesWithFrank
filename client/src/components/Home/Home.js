@@ -2,7 +2,11 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Jumbotron from "./Jumbotron";
 import Search from "../Search/Search";
-import { getRecipeBySearch, getPopularRecipes } from "../../utils";
+import {
+  getRecipeBySearch,
+  getPopularRecipes,
+  getRecipeDetails,
+} from "../../utils";
 import { AiOutlineClockCircle, AiOutlineFire } from "react-icons/ai";
 import { GoPrimitiveDot } from "react-icons/go";
 import {
@@ -22,19 +26,26 @@ import {
   Header,
 } from "./home.styles";
 
-const Home = (props) => {
+const Home = ({ setRecipeDetails }) => {
   const [recipes, setRecipes] = useState();
-  const [recipeDetails, setRecipeDetails] = useState();
-
-  const navigate = useNavigate();
-  const getRecipeDetails = (id) => {
-    navigate(`/recipes/${id}`);
-  };
   const [title, setTitle] = useState();
 
+  const navigate = useNavigate();
+  const getRecipeDetail = async (id) => {
+    // console.log("id", id);
+    const result = await getRecipeDetails(id);
+    setRecipeDetails(result);
+    navigate(`/recipes/${id}`);
+  };
+
   useEffect(() => {
-    getPopularRecipes(setRecipes);
+    init();
   }, []);
+
+  const init = async () => {
+    const results = await getPopularRecipes();
+    setRecipes(results);
+  };
 
   return (
     <div>
@@ -56,12 +67,9 @@ const Home = (props) => {
               : `You searched for ${title}...`}
           </Header>
           {recipes?.map((recipes, index) => (
-            <RecipeCard key={index}>
+            <RecipeCard key={index} onClick={() => getRecipeDetail(recipes.id)}>
               <ImageContainer>
-                <RecipeImage
-                  src={recipes?.image}
-                  onClick={() => setRecipeDetails(getRecipeDetails(recipes.id))}
-                />
+                <RecipeImage src={recipes?.image} />
               </ImageContainer>
               <RecipeDetailsContainer>
                 <RecipeTitle>{recipes.title}</RecipeTitle>
