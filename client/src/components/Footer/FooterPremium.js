@@ -5,7 +5,8 @@ import styled from 'styled-components';
 const FooterContainer = styled.div`
   width: 100%;
   height: 400px;
-  background-color: rgb(25, 200, 140);
+  /* background-color: rgb(25, 200, 140); */
+  background-color: rgb(252, 252, 164);
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -22,6 +23,7 @@ const MainText = styled.div`
 const BodyText = styled.div`
 color: white;
 margin-bottom: 40px;
+
 `
 
 const Button = styled.div`
@@ -35,7 +37,8 @@ const Button = styled.div`
   font-weight: 700;
   align-items: center;
   justify-content: center;
-  background-color: rgb(249, 70, 66);
+  /* background-color: rgb(249, 70, 66); */
+  
   &:hover {
     background-color: rgb(255, 53, 34);
     transition-delay: 100ms;
@@ -48,6 +51,7 @@ const ButtonATag = styled.a`
   text-decoration: none;
   color: white;
   font-size: 20px;
+  
 `;
 
 const FooterPremium = () => {
