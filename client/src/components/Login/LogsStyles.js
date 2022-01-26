@@ -1,19 +1,34 @@
 import styled from "styled-components";
+import LetsEat from "../../assets/LetsEat.png";
 
 /*need to work on responsiveness, better colors, need to insert logo*/
+export const LogoContainer = styled.div`
+  height: 102px;
+  background-image: url(${LetsEat});
+  background-size: cover;
+  color: white;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 22px;
+  background-position: center;
+  border-radius: 8rem;
+  width: 17rem;
+  margin-bottom: 10em;
+`;
 
 export const FormContainer = styled.div`
   margin: 7em 0 0 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 50%;
+  width: 38%;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
-  border: 2px solid lightblue;
+  /* background-color: #e1c699; */
+  background-color: #ffff;
+  padding: 1rem;
+  border: 2px solid #d29685;
   border-radius: 10px;
   height: 100%;
 `;
@@ -33,7 +48,7 @@ export const Button = styled.button`
   font-weight: 700;
   color: #fff;
   border-radius: 100px;
-  background: #3177bb;
+  background: #d29685;
   height: 50px;
   text-align: center;
   width: 200px;
@@ -45,7 +60,7 @@ export const Lable = styled.label`
 
 export const Input = styled.input`
   border-radius: 5px;
-  border: 2px solid #3177bb;
+  border: 2px solid #d29685;
   height: 3rem;
   width: 18.5rem;
   text-align: center;

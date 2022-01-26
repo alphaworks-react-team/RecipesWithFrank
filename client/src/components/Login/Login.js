@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import {
+  LogoContainer,
   FormContainer,
   Header,
   Form,
@@ -12,10 +14,12 @@ import {
 
 const Login = ({ getUser, getPassword, authUser }) => {
   const navigate = useNavigate();
+
   return (
     <>
-    <div></div> //logo container
+    
       <FormContainer>
+      <LogoContainer onClick={() => {navigate("/")}}></LogoContainer>
         <Header>Welcome To Frank's Recipies!</Header>
         <Paragraph>Please sign in to get started</Paragraph>
         <Form onSubmit={authUser}>

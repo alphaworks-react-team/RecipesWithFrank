@@ -120,9 +120,9 @@ function App(props) {
           element={<RecipeDetails recipeDetails={recipeDetails} />}
         />
       </Routes>
-     { /*<FooterPremium />
+     { 
     <Footer />
-    */}
+    }
       
     </>
   );
