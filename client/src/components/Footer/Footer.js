@@ -139,8 +139,7 @@ const ButtonATagRed = styled.a`
 const Footer = () => {
   return (
     <Container>
-      <LogoContainer>Frank Foto</LogoContainer>
-      <LinkContainer1>
+{/*      <LogoContainer>Frank Foto</LogoContainer> */}      <LinkContainer1>
         <ButtonLink>Featured Frank</ButtonLink>
         <ButtonLink>Premium Frank's</ButtonLink>
         <ButtonLink>Frank's Recipes</ButtonLink>
