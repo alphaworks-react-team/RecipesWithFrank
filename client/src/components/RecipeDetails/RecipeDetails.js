@@ -1,6 +1,6 @@
 import React from "react";
 
-const RecipeDetails = (props) => {
+const RecipeDetails = () => {
   return (
     <div>
       <h1>THE DEETS</h1>
