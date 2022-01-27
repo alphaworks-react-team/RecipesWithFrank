@@ -76,4 +76,7 @@ export const Header = styled.h1`
   font-weight: 500;
 `;
 
-export const Paragraph = styled.p``;
+export const Paragraph = styled.p`
+  text-align: center;
+`;
+  
