@@ -11,7 +11,8 @@ import styled from 'styled-components';
 const Container = styled.div`
   width: 100%;
   height: 400px;
-  background-color: white;
+  background-color: rgb(252, 252, 164);
+
 `;
 
 const LogoContainer = styled.div`
@@ -75,7 +76,9 @@ const CopyWrightText = styled.div`
 const ButtonLink = styled.div`
   width: 150px;
   height: 35px;
-  background: white;
+  /* background: white; */
+  background-color: rgb(252, 252, 164);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,8 +142,7 @@ const ButtonATagRed = styled.a`
 const Footer = () => {
   return (
     <Container>
-      <LogoContainer>Frank Foto</LogoContainer>
-      <LinkContainer1>
+{/*      <LogoContainer>Frank Foto</LogoContainer> */}      <LinkContainer1>
         <ButtonLink>Featured Frank</ButtonLink>
         <ButtonLink>Premium Frank's</ButtonLink>
         <ButtonLink>Frank's Recipes</ButtonLink>

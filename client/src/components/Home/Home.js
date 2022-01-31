@@ -6,6 +6,8 @@ import {
   getRecipeBySearch,
   getPopularRecipes,
   getRecipeDetails,
+  cuisines,
+  getRecipesByCuisine,
 } from "../../utils";
 import { AiOutlineClockCircle, AiOutlineFire } from "react-icons/ai";
 import { GoPrimitiveDot } from "react-icons/go";
@@ -24,15 +26,16 @@ import {
   ToolTipBox,
   RecipeTitle,
   Header,
+  CuisineButton,
+  CuisineContainer,
 } from "./home.styles";
 
 const Home = ({ setRecipeDetails }) => {
-  const [recipes, setRecipes] = useState();
+  const [recipes, setRecipes] = useState([]);
   const [title, setTitle] = useState();
 
   const navigate = useNavigate();
   const getRecipeDetail = async (id) => {
-    // console.log("id", id);
     const result = await getRecipeDetails(id);
     setRecipeDetails(result);
     navigate(`/recipes/${id}`);
@@ -47,10 +50,19 @@ const Home = ({ setRecipeDetails }) => {
     setRecipes(results);
   };
 
+  const getRecipeByCuisine = async (cuisine) => {
+    try {
+      const results = await getRecipesByCuisine(cuisine.cuisine);
+      setRecipes(results);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <Jumbotron>
-        <JumbotronText>
+        <JumbotronText textAlign="center">
           Explore over <strong>2</strong> recipes With Frank.
         </JumbotronText>
         <Search
@@ -58,6 +70,19 @@ const Home = ({ setRecipeDetails }) => {
           setRecipes={setRecipes}
           setTitle={setTitle}
         />
+        <JumbotronText>
+          Having Trouble? Try these different cuisines!
+        </JumbotronText>
+        <CuisineContainer>
+          {cuisines.map((cuisine, index) => (
+            <CuisineButton
+              key={index}
+              onClick={() => getRecipeByCuisine({ cuisine })}
+            >
+              {cuisine}
+            </CuisineButton>
+          ))}
+        </CuisineContainer>
       </Jumbotron>
       <HomeContainer>
         <RecipeContainer>
