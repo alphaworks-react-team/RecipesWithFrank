@@ -44,6 +44,20 @@ exports.getRecipeDetailsById = async (req, res) => {
     );
     return res.json(result.data);
   } catch (error) {
-    console.log;
+    return res.status(510).json({ msg: "Nope" });
+  }
+};
+
+exports.getRecipesByCuisine = async (req, res) => {
+  try {
+    const result = await axios.get(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}&cuisine=${req.query.cuisine}&addRecipeInformation=true&addRecipeNutrition=true&instructionsRequired=true`,
+      {
+        headers: headers,
+      }
+    );
+    return res.json(result.data);
+  } catch (error) {
+    console.log(error);
   }
 };
