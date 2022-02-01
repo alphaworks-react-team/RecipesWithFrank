@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const StyledLogoLink = styled(Link)`
   font-size: 24px;
@@ -72,6 +73,7 @@ const JustifyCenter = styled.div`
 `;
 
 const Primary = ({ navColor }) => {
+  const navigate = useNavigate()
   return (
     <>
       {/* Logo */}
@@ -114,11 +116,11 @@ const Primary = ({ navColor }) => {
             navColor={navColor}
             to="/login"
           >
-            Login In
+            Log In
           </StyledLink>
         </div>
         <Button navColor={navColor}>
-          <StyleButtonLink navColor={navColor} to="/">
+          <StyleButtonLink navColor={navColor} to="/" onClick={() => {navigate("/signup")}}>
             Join For Free
           </StyleButtonLink>
         </Button>

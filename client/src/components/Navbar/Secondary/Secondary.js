@@ -62,7 +62,7 @@ const Secondary = ({ navColor }) => {
       </Logo>
       {/* Menu */}
       <Button navColor={navColor}>
-        <StyleButtonLink navColor={navColor} to="/">
+        <StyleButtonLink navColor={navColor} to="/" >
           Join For Free
         </StyleButtonLink>
       </Button>
