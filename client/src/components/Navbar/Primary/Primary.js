@@ -120,7 +120,7 @@ const Primary = ({ navColor }) => {
           </StyledLink>
         </div>
         <Button navColor={navColor}>
-          <StyleButtonLink navColor={navColor} to="/" onClick={() => {navigate("/signup")}}>
+          <StyleButtonLink navColor={navColor} to="/signup" onClick={() => {navigate("/signup")}}>
             Join For Free
           </StyleButtonLink>
         </Button>

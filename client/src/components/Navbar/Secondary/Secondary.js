@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { MenuToggleBlack } from "../MenuToggleBlack";
 
 const StyledLogoLink = styled(Link)`
   font-size: 24px;
@@ -27,7 +28,8 @@ const StyleButtonLink = styled(Link)`
 const Button = styled.div`
   width: 120px;
   height: 35px;
-  padding: 10px 12px;
+  padding: 5px 12px;
+  margin-bottom: 7px;
   border: none;
   border-radius: 50px;
   display: flex;
@@ -47,25 +49,61 @@ const Button = styled.div`
   }
 `;
 
-const Logo = styled.div`
-  // padding-left: 50px;
+// const Logo = styled.div`
+//   // padding-left: 50px;
+// `;
+
+const LinkWrapper = styled.ul`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: auto;
+  list-style: none;
+  background-color: #fff;
+  width: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 92px;
+  left: 0;
+  border-radius: 20px;
+  padding: 5px;
 `;
 
+const LinkItems = styled.li`
+  height: 100%;
+  width: 100%;
+  padding: 0 0.1em 1em;
+  color: #222;
+  font-weight: 500;
+  display: flex;
+  border-top: 2px solid transparent;
+  transition: all 220ms ease-in-out;
+  &:hover {
+    border-top: 2px solid yellow;
+  }
+`;
 const Secondary = ({ navColor }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      {/* Logo */}
-      <Logo>
-        <StyledLogoLink navColor={navColor} to="/">
-          Logo
-        </StyledLogoLink>
-      </Logo>
-      {/* Menu */}
-      <Button navColor={navColor}>
-        <StyleButtonLink navColor={navColor} to="/" >
-          Join For Free
-        </StyleButtonLink>
-      </Button>
+      <MenuToggleBlack isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} />
+      {isOpen && (
+        <LinkWrapper>
+          <LinkItems navColor={navColor} to="/login">
+            About
+          </LinkItems>
+          <Button navColor={navColor}>
+            <StyleButtonLink navColor={navColor} to="/login">
+              Login Here
+            </StyleButtonLink>
+          </Button>
+          <Button navColor={navColor}>
+            <StyleButtonLink navColor={navColor} to="/signup">
+              Join For Free
+            </StyleButtonLink>
+          </Button>
+        </LinkWrapper>
+      )}
     </>
   );
 };

@@ -56,7 +56,7 @@ const SignUp = ({ signUp, user, password, getPassword, getUser }) => {
             navigate("/login");
           }}
         >
-          Sign up
+         Log In
         </Button>
       </FormContainer>
     </>
