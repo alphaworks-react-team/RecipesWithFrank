@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const DetailsContainer = styled.div``;
 
@@ -19,6 +19,34 @@ const TimeLabel = styled.div``;
 
 const TimeValue = styled.div``;
 
+const IngredientContainer = styled.div`
+  width: 100%;
+  height: 800px;
+  margin-left: 200px;
+  margin-right: 200px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  background-color: white;
+`;
+
+const IngredientTitle = styled.div``;
+
+const IngredientCard = styled.div`
+  width: 100%;
+  background-color: lightblue;
+`;
+
+const IngredientImage = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  background-image: url(${props => props.src});
+  background-position: center;
+  background-size: cover;
+  display: flex;
+`;
+
 const RecipeDetails = ({ recipeDetails }) => {
   return (
     <DetailsContainer>
@@ -36,6 +64,16 @@ const RecipeDetails = ({ recipeDetails }) => {
           <TimeLabel>Ready Time</TimeLabel>
           <TimeValue>{recipeDetails.readyInMinutes}min</TimeValue>
         </CookingTimeItem>
+        <IngredientContainer>
+          <IngredientTitle></IngredientTitle>
+          {recipeDetails.extendedIngredients.map((ingredients, index) => (
+            <IngredientCard key={index}>
+              <IngredientImage
+                src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredients.image}`}
+              />
+            </IngredientCard>
+          ))}
+        </IngredientContainer>
       </CookingTime>
     </DetailsContainer>
   );
