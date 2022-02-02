@@ -16,7 +16,7 @@ const SignUp = ({ signUp, user, password, getPassword, getUser }) => {
   return (
     <>
       <FormContainer>
-        <LogoContainer></LogoContainer>
+        <LogoContainer onClick={() => {navigate("/")}}></LogoContainer>
         <Header>Read To Spice Up Your Home Cooked Meals? </Header>
         <Paragraph>
           Frank is a world renowned chef, trained by Gordan Ramsey himself.
@@ -56,7 +56,7 @@ const SignUp = ({ signUp, user, password, getPassword, getUser }) => {
             navigate("/login");
           }}
         >
-          Sign up
+         Log In
         </Button>
       </FormContainer>
     </>

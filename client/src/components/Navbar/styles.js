@@ -49,7 +49,8 @@ export const secondaryNavStyling = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "20px 0",
+    padding: "20px 0 ",
+    paddingLeft: " 10px ",
     backgroundColor: "white",
   },
 };

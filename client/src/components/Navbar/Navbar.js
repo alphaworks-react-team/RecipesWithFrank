@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Primary, Secondary } from "../Navbar/index.js";
+import { MenuToggle } from "./MenuToggle.js";
+import { MenuToggleBlack } from "./MenuToggleBlack.js";
 import { primaryNavStyling, secondaryNavStyling } from "./styles.js";
 
 const NavBar = () => {
@@ -27,6 +29,7 @@ const NavBar = () => {
           }
         >
           <Primary navColor={navColor} />
+
         </div>
       ) : (
         <div
