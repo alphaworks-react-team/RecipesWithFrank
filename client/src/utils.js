@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 
 const headers = {
-  "Content-Type": "application/json",
+  'Content-Type': 'application/json',
 };
 
-export const getRecipeBySearch = async (search) => {
+export const getRecipeBySearch = async search => {
   try {
     const res = await axios.get(
       `http://localhost:8000/recipes/search/?search=${search}`,
@@ -18,7 +18,7 @@ export const getRecipeBySearch = async (search) => {
   }
 };
 
-export const getRecipeDetails = async (id) => {
+export const getRecipeDetails = async id => {
   try {
     const res = await axios.get(`http://localhost:8000/recipes/${id}`, {
       headers: headers,

@@ -1,7 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-const DetailsContainer = styled.div``;
+const DetailsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const DetailsJumbotron = styled.div`
   width: 100%;
@@ -11,8 +14,9 @@ const DetailsJumbotron = styled.div`
 
 const CookingTime = styled.ul`
   display: flex;
-
-  padding-inline-start: 40px;
+  align-items: flex-end;
+  padding-inline-start: 270px;
+  height: 280px;
 `;
 
 const CookingTimeItem = styled.li`
@@ -31,13 +35,14 @@ const FoodImage = styled.img`
   height: 800px;
   width: 500px;
   border-radius: 15px;
-  background-image: url(${(props) => props.src});
+  background-image: url(${props => props.src});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 `;
 const RecipeHeaderContent = styled.div`
   display: flex;
+  flex-flow: column;
   height: 580px;
   width: 800px;
 `;
@@ -64,7 +69,7 @@ const IngredientImage = styled.div`
   width: 100px;
   height: 100px;
   background-color: pink;
-  background-image: url(${(props) => props.src});
+  background-image: url(${props => props.src});
   background-position: center;
   background-size: cover;
   display: flex;
@@ -73,10 +78,28 @@ const IngredientImage = styled.div`
 const RecipeDetails = ({ recipeDetails }) => {
   return (
     <>
-      <DetailsJumbotron>{console.log(recipeDetails)}</DetailsJumbotron>
+      <DetailsJumbotron>
+        {console.log(recipeDetails)}
+        <CookingTime>
+          <CookingTimeItem>
+            <TimeLabel>Prep Time</TimeLabel>
+            <TimeValue>{recipeDetails.preparationMinutes}min</TimeValue>
+          </CookingTimeItem>
+          <CookingTimeItem>
+            <TimeLabel>Cook Time</TimeLabel>
+            <TimeValue>{recipeDetails.cookingMinutes}min</TimeValue>
+          </CookingTimeItem>
+          <CookingTimeItem>
+            <TimeLabel>Ready Time</TimeLabel>
+            <TimeValue>{recipeDetails.readyInMinutes}min</TimeValue>
+          </CookingTimeItem>
+        </CookingTime>
+      </DetailsJumbotron>
       <DetailsContainer>
         <RecipeHeaderContent>
-          <CookingTime>
+          {recipeDetails.title}
+          {recipeDetails.summary.replace(/(<([^>]+)>)/gi, '')}
+          {/* <CookingTime>
             <CookingTimeItem>
               <TimeLabel>Prep Time</TimeLabel>
               <TimeValue>{recipeDetails.preparationMinutes}min</TimeValue>
@@ -89,12 +112,12 @@ const RecipeDetails = ({ recipeDetails }) => {
               <TimeLabel>Ready Time</TimeLabel>
               <TimeValue>{recipeDetails.readyInMinutes}min</TimeValue>
             </CookingTimeItem>
-          </CookingTime>
+          </CookingTime> */}
         </RecipeHeaderContent>
         <FoodImage src={recipeDetails.image}></FoodImage>
       </DetailsContainer>
 
-      <IngredientContainer>
+      {/* <IngredientContainer>
         <IngredientTitle></IngredientTitle>
         {recipeDetails.extendedIngredients.map((ingredients, index) => (
           <IngredientCard key={index}>
@@ -103,7 +126,7 @@ const RecipeDetails = ({ recipeDetails }) => {
             />
           </IngredientCard>
         ))}
-      </IngredientContainer>
+      </IngredientContainer> */}
     </>
   );
 };

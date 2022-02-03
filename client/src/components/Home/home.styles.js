@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const JumbotronText = styled.p`
   width: 950px;
@@ -73,10 +73,10 @@ export const ToolTipText = styled.span`
   visibility: hidden;
   position: absolute;
   z-index: 1;
-  width: ${(width) => width};
+  width: ${width => width};
   bottom: 27px;
-  left: ${(props) => props.positionLeft};
-  background-color: ${(props) => props.backgroundColor};
+  left: ${props => props.positionLeft};
+  background-color: ${props => props.backgroundColor};
   color: white;
   padding: 5px;
   text-align: center;
@@ -85,14 +85,14 @@ export const ToolTipText = styled.span`
   transition: opacity 1.5s;
   font-style: italic;
   ::after {
-    content: " ";
+    content: ' ';
     position: absolute;
     top: 100%;
     left: 50%;
-    margin-left: ${(props) => props.ml};
+    margin-left: ${props => props.ml};
     border-width: 5px;
     border-style: solid;
-    border-color: ${(props) => props.backgroundColor} transparent transparent
+    border-color: ${props => props.backgroundColor} transparent transparent
       transparent;
   }
 `;
@@ -115,7 +115,7 @@ export const RecipeImage = styled.div`
   width: 500px;
   height: 300px;
   background-color: pink;
-  background-image: url(${(props) => props.src});
+  background-image: url(${props => props.src});
   background-position: center;
   background-size: cover;
   border-radius: 12px 12px 0 0;

@@ -4,16 +4,16 @@ import { primaryNavStyling, secondaryNavStyling } from "./styles.js";
 
 const NavBar = () => {
   // State to handle conditional render && event handling
-  const [navColor, setNavColor] = useState(false);
+  const [nav, setNav] = useState(false);
 
   const windowSize = useWindowSize();
 
   // On scroll event listener helper function
   const changeBackgroundColor = () => {
     if (window.scrollY >= 200) {
-      setNavColor(true);
+      setNav(true);
     } else {
-      setNavColor(false);
+      setNav(false);
     }
   };
   window.addEventListener("scroll", changeBackgroundColor);
@@ -22,22 +22,19 @@ const NavBar = () => {
     <>
       {windowSize >= 1200 ? (
         <div
-          style={
-            !navColor ? primaryNavStyling.transparent : primaryNavStyling.white
-          }
+          style={!nav ? primaryNavStyling.transparent : primaryNavStyling.white}
         >
-          <Primary navColor={navColor} />
+
+          <Primary nav={+nav} />
 
         </div>
       ) : (
         <div
           style={
-            !navColor
-              ? secondaryNavStyling.transparent
-              : secondaryNavStyling.white
+            !nav ? secondaryNavStyling.transparent : secondaryNavStyling.white
           }
         >
-          <Secondary navColor={navColor} />
+          <Secondary nav={+nav} />
         </div>
       )}
     </>
