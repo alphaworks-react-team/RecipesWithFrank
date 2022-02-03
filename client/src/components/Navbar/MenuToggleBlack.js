@@ -5,6 +5,8 @@ import styled from "styled-components";
 const Button = styled.div`
   z-index: 99;
   cursor: pointer;
+  padding-left:10px;
+  background-color:transparent;
 `;
 
 //renders motion path which is svg

@@ -7,11 +7,13 @@ import Login from "./components/Login/Login";
 import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
 import SignUp from "./components/Login/SignUp.js";
 import FooterPremium from "./components/Footer/FooterPremium";
+import PreimumPage from "./components/PremiumFolder/PremiumPage"
 import Footer from "./components/Footer/Footer";
 //routes
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import "./App.css";
+import PremiumPage from "./components/PremiumFolder/PremiumPage";
 function App(props) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -119,6 +121,10 @@ function App(props) {
           path="/recipes/:id"
           element={<RecipeDetails recipeDetails={recipeDetails} />}
         />
+      <Route
+        path="/premium-page"
+        element={<PremiumPage />}
+      />
       </Routes>
      { 
     <Footer />

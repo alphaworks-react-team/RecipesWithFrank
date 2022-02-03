@@ -3,19 +3,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MenuToggleBlack } from "../MenuToggleBlack";
 
-const StyledLogoLink = styled(Link)`
-  font-size: 24px;
-  font-weight: 700;
-  color: ${(props) => (props.navColor ? "black" : "white")};
-  margin: 0 10px;
-  padding: 5px 0;
-  text-decoration: none;
-  &:hover {
-    border-bottom: ${(props) =>
-      props.navColor ? "2px solid rgb(25, 200, 140)" : "2px solid white"};
-  }
-`;
-
 const StyleButtonLink = styled(Link)`
   text-decoration: none;
   color: ${(props) => (props.navColor ? "white" : "rgb(25, 200, 140)")};
@@ -49,10 +36,6 @@ const Button = styled.div`
   }
 `;
 
-// const Logo = styled.div`
-//   // padding-left: 50px;
-// `;
-
 const LinkWrapper = styled.ul`
   margin: 0;
   padding: 0;
@@ -67,6 +50,8 @@ const LinkWrapper = styled.ul`
   left: 0;
   border-radius: 20px;
   padding: 5px;
+  border-top: 1px solid #ebeff4;
+  background: #fff;
 `;
 
 const LinkItems = styled.li`
@@ -78,8 +63,13 @@ const LinkItems = styled.li`
   display: flex;
   border-top: 2px solid transparent;
   transition: all 220ms ease-in-out;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #333;
   &:hover {
-    border-top: 2px solid yellow;
+    border-top: 1px solid rgb(25, 200, 140);
+ 
   }
 `;
 const Secondary = ({ navColor }) => {
@@ -90,7 +80,22 @@ const Secondary = ({ navColor }) => {
       {isOpen && (
         <LinkWrapper>
           <LinkItems navColor={navColor} to="/login">
-            About
+            Features
+          </LinkItems>
+          <LinkItems navColor={navColor} to="/login">
+            Premium
+          </LinkItems>
+          <LinkItems navColor={navColor} to="/login">
+            Recipes
+          </LinkItems>
+          <LinkItems navColor={navColor} to="/login">
+            Articles
+          </LinkItems>
+          <LinkItems navColor={navColor} to="/login">
+            Cookbook
+          </LinkItems>
+          <LinkItems navColor={navColor} to="/login">
+            Support
           </LinkItems>
           <Button navColor={navColor}>
             <StyleButtonLink navColor={navColor} to="/login">

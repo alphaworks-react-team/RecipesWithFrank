@@ -86,19 +86,22 @@ const Primary = ({ navColor }) => {
       <DisplayFlex>
         <JustifyCenter>
           <StyledLink navColor={navColor} to="/">
-            NAV
+            Features
+          </StyledLink>
+          <StyledLink navColor={navColor} to="/premium-page">
+            Premium
           </StyledLink>
           <StyledLink navColor={navColor} to="/">
-            NAV
+            Recipes
           </StyledLink>
           <StyledLink navColor={navColor} to="/">
-            NAV
+            Articles
           </StyledLink>
           <StyledLink navColor={navColor} to="/">
-            NAV
+            Cookbook
           </StyledLink>
           <StyledLink navColor={navColor} to="/">
-            NAV
+            Support
           </StyledLink>
         </JustifyCenter>
       </DisplayFlex>
