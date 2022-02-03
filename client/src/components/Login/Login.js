@@ -1,33 +1,67 @@
-import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ getUser, getPassword, authUser}) => {
+import {
+  LogoContainer,
+  FormContainer,
+  Header,
+  Form,
+  Paragraph,
+  Button,
+  Lable,
+  Input,
+} from "./LogsStyles";
 
-
+const Login = ({ getUser, getPassword, authUser }) => {
+  const navigate = useNavigate();
 
   return (
-    <form
-      onSubmit={authUser}
-    >
-      <label>
-        Username:
-        <input id="username"
-          type="text"
-          name="username"
-          // value={user}
-          onChange={getUser}
-        />
-      </label>
-      <label>
-        Password:
-        <input id="password"
-          type="password"
-          name="password"
-          // value={password}
-          onChange={getPassword}
-        />
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
+    <>
+    
+      <FormContainer>
+      <LogoContainer onClick={() => {navigate("/")}}></LogoContainer>
+        <Header>Welcome To Frank's Recipies!</Header>
+        <Paragraph>Please sign in to get started</Paragraph>
+        <Form onSubmit={authUser}>
+          <Lable>
+            {/*Username:*/}
+            <Input
+              id="username"
+              type="text"
+              name="username"
+              placeholder="Username"
+              // value={user}
+              onChange={getUser}
+            />
+          </Lable>
+          <Lable>
+            {/*Password:*/}
+            <Input
+              placeholder="Password"
+              id="password"
+              type="password"
+              name="password"
+              // value={password}
+              onChange={getPassword}
+            />
+          </Lable>
+          <Button type="submit" value="Submit">
+            Continue
+          </Button>
+        </Form>
+        <Paragraph>Don't have an account with us?</Paragraph>
+        <Button
+          onClick={() => {
+            navigate("/signup");
+          }}
+        >
+          Sign up
+        </Button>
+        <Paragraph>
+          This site is protected by FrankProtectsINC and their privacy policy
+          and terms apply.
+        </Paragraph>
+      </FormContainer>
+    </>
   );
 };
 
