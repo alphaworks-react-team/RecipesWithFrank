@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const StyledLogoLink = styled(Link)`
   font-size: 24px;
@@ -69,7 +70,9 @@ const JustifyCenter = styled.div`
   justify-content: center;
 `;
 
+
 const Primary = ({ nav }) => {
+
   return (
     <>
       {/* Logo */}
@@ -107,12 +110,14 @@ const Primary = ({ nav }) => {
       >
         {/* Login && Sign Up Links */}
         <div>
+
           <StyledLink style={{ marginRight: "20px" }} nav={nav} to="/login">
             Login In
           </StyledLink>
         </div>
         <Button nav={nav}>
           <StyleButtonLink nav={nav} to="/">
+
             Join For Free
           </StyleButtonLink>
         </Button>
