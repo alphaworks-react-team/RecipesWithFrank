@@ -6,19 +6,19 @@ import { MenuToggleBlack } from "../MenuToggleBlack";
 const StyledLogoLink = styled(Link)`
   font-size: 24px;
   font-weight: 700;
-  color: ${(props) => (props.navColor ? "black" : "white")};
+  color: ${(props) => (props.nav ? "black" : "white")};
   margin: 0 10px;
   padding: 5px 0;
   text-decoration: none;
   &:hover {
     border-bottom: ${(props) =>
-      props.navColor ? "2px solid rgb(25, 200, 140)" : "2px solid white"};
+      props.nav ? "2px solid rgb(25, 200, 140)" : "2px solid white"};
   }
 `;
 
 const StyleButtonLink = styled(Link)`
   text-decoration: none;
-  color: ${(props) => (props.navColor ? "white" : "rgb(25, 200, 140)")};
+  color: ${(props) => (props.nav ? "white" : "rgb(25, 200, 140)")};
   font-size: 16px;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -37,12 +37,10 @@ const Button = styled.div`
   font-weight: 700;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) =>
-    props.navColor ? "rgb(25, 200, 140)" : "white"};
+  background-color: ${(props) => (props.nav ? "rgb(25, 200, 140)" : "white")};
   &:hover {
     color: rgb(28, 166, 118);
-    background-color: ${(props) =>
-      props.navColor ? "rgb(28,166,118)" : "white"};
+    background-color: ${(props) => (props.nav ? "rgb(28,166,118)" : "white")};
     transition-delay: 100ms;
     transition: transform 100ms ease-in-out 25ms;
     transform: translateY(3px);
@@ -82,23 +80,23 @@ const LinkItems = styled.li`
     border-top: 2px solid yellow;
   }
 `;
-const Secondary = ({ navColor }) => {
+const Secondary = ({ nav }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <MenuToggleBlack isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} />
       {isOpen && (
         <LinkWrapper>
-          <LinkItems navColor={navColor} to="/login">
+          <LinkItems nav={nav} to="/login">
             About
           </LinkItems>
-          <Button navColor={navColor}>
-            <StyleButtonLink navColor={navColor} to="/login">
+          <Button nav={nav}>
+            <StyleButtonLink nav={nav} to="/login">
               Login Here
             </StyleButtonLink>
           </Button>
-          <Button navColor={navColor}>
-            <StyleButtonLink navColor={navColor} to="/signup">
+          <Button nav={nav}>
+            <StyleButtonLink nav={nav} to="/signup">
               Join For Free
             </StyleButtonLink>
           </Button>
