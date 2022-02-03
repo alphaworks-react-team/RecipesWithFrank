@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const JumbotronText = styled.p`
+  width: 950px;
   font-size: 26px;
   padding: 0;
   position: relative;
+  text-align: ${(props) => props.textAlign};
 `;
 
 export const HomeContainer = styled.div`
@@ -122,4 +124,24 @@ export const RecipeImage = styled.div`
   &:hover {
     transform: scale(1.08);
   }
+`;
+
+export const CuisineButton = styled.div`
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-color: white;
+  position: relative;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const CuisineContainer = styled.div`
+  width: 950px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 `;

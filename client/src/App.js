@@ -12,15 +12,6 @@ import Footer from "./components/Footer/Footer";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import "./App.css";
-//utilities
-
-// import {
-//   getRecipe,
-//   getRecipeBySearch,
-//   getIngredientsByRecipeId,
-// } from "./utils";
-// import Search from "./components/Search/Search";
-
 function App(props) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -129,8 +120,10 @@ function App(props) {
           element={<RecipeDetails recipeDetails={recipeDetails} />}
         />
       </Routes>
-      <FooterPremium />
-      <Footer />
+     { 
+    <Footer />
+    }
+      
     </>
   );
 }

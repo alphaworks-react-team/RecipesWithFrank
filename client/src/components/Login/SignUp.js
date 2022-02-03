@@ -1,31 +1,65 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-const SignUp = ({signUp, user, password, getPassword, getUser}) => {
-  const navigate = useNavigate()
-  
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  LogoContainer,
+  FormContainer,
+  Header,
+  Form,
+  Paragraph,
+  Button,
+  Lable,
+  Input,
+} from "./LogsStyles";
+const SignUp = ({ signUp, user, password, getPassword, getUser }) => {
+  const navigate = useNavigate();
 
   return (
     <>
-    <h1>Welcome to Recipes With Frank</h1>
-      <p>Frank is a world renowned chef, trained by Gordan Ramsey himself. Frank has perfected many dishes, while creating his own one of a kind dishes, winning awards for <i>Most Creative Dish</i>, and <i>Best Glizzy Award</i>. Sign Up now and you too, will create the best of the best dish your pallet has never before tasted! </p>
+      <FormContainer>
+        <LogoContainer onClick={() => {navigate("/")}}></LogoContainer>
+        <Header>Read To Spice Up Your Home Cooked Meals? </Header>
+        <Paragraph>
+          Frank is a world renowned chef, trained by Gordan Ramsey himself.
+          Frank has perfected many dishes, while creating his own one of a kind
+          dishes, winning awards for <i>Most Creative Dish</i>, and{" "}
+          <i>Best Glizzy Award</i>. Sign Up now and you too, will create the
+          best of the best dish your pallet has never before tasted!{" "}
+        </Paragraph>
 
-    <form onSubmit={(e) => signUp(e, user, password)}>
-      
-    <label>
-      Username:
-      <input id="user" type="text" name="name" onChange={getUser} />
-    </label>
-    <label>
-      Password:
-      <input id="password" type="password" name="password" onChange={getPassword}/>
-    </label>
+        <Form onSubmit={(e) => signUp(e, user, password)}>
+          <Lable>
+            <Input
+              id="user"
+              type="text"
+              name="name"
+              onChange={getUser}
+              placeholder="Username"
+            />
+          </Lable>
+          <Lable>
+            <Input
+              id="password"
+              type="password"
+              name="password"
+              onChange={getPassword}
+              placeholder="Password"
+            />
+          </Lable>
 
-    <input type="submit" value="Submit" />
-  </form>
-  <p>Already a member with us?</p>
-  {/* <button>login</button> */}
-  </>
+          <Button type="submit" value="Submit">
+            Submit
+          </Button>
+        </Form>
+        <Paragraph>Already a member with us?</Paragraph>
+        <Button
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+         Log In
+        </Button>
+      </FormContainer>
+    </>
   );
 };
 

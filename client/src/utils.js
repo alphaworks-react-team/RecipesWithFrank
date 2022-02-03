@@ -39,3 +39,46 @@ export const getPopularRecipes = async () => {
     console.log(error);
   }
 };
+
+export const getRecipesByCuisine = async (cuisine) => {
+  try {
+    const res = await axios.get(
+      `http://localhost:8000/recipes/cuisine?cuisine=${cuisine}`,
+      {
+        headers: headers,
+      }
+    );
+    return res.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const cuisines = [
+  "African",
+  "American",
+  "British",
+  "Cajun",
+  "Caribbean",
+  "Chinese",
+  "Eastern European",
+  "European",
+  "French",
+  "German",
+  "Greek",
+  "Indian",
+  "Irish",
+  "Italian",
+  "Japanese",
+  "Jewish",
+  "Korean",
+  "Latin American",
+  "Mediterranean",
+  "Mexican",
+  "Middle Eastern",
+  "Nordic",
+  "Southern",
+  "Spanish",
+  "Thai",
+  "Vietnamese",
+];
