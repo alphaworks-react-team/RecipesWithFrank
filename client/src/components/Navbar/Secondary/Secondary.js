@@ -3,18 +3,18 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MenuToggleBlack } from "../MenuToggleBlack";
 
-const StyledLogoLink = styled(Link)`
-  font-size: 24px;
-  font-weight: 700;
-  color: ${(props) => (props.nav ? "black" : "white")};
-  margin: 0 10px;
-  padding: 5px 0;
-  text-decoration: none;
-  &:hover {
-    border-bottom: ${(props) =>
-      props.nav ? "2px solid rgb(25, 200, 140)" : "2px solid white"};
-  }
-`;
+// const StyledLogoLink = styled(Link)`
+//   font-size: 24px;
+//   font-weight: 700;
+//   color: ${(props) => (props.nav ? "black" : "white")};
+//   margin: 0 10px;
+//   padding: 5px 0;
+//   text-decoration: none;
+//   &:hover {
+//     border-bottom: ${(props) =>
+//       props.nav ? "2px solid rgb(25, 200, 140)" : "2px solid white"};
+//   }
+// `;
 
 const StyleButtonLink = styled(Link)`
   text-decoration: none;
@@ -93,7 +93,7 @@ const Secondary = ({ nav }) => {
           <LinkItems nav={nav} to="/login">
             Features
           </LinkItems>
-          <LinkItems nav={nav} to="/login">
+          <LinkItems nav={nav} to="/premium-page">
             Premium
           </LinkItems>
           <LinkItems nav={nav} to="/login">
