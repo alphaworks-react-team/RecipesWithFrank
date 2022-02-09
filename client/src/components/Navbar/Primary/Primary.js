@@ -118,7 +118,7 @@ const Primary = ({ nav }) => {
           </StyledLink>
         </div>
         <Button nav={nav}>
-          <StyleButtonLink nav={nav} to="/">
+          <StyleButtonLink nav={nav} to="/signup">
             Join For Free
           </StyleButtonLink>
         </Button>

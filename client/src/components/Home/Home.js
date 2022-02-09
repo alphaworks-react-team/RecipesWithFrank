@@ -30,6 +30,10 @@ import {
   CuisineContainer,
 } from "./home.styles";
 
+//transitions
+import { motion } from "framer-motion";
+import { HomeVariant, pageTransitions } from "../FramerPageTransitions";
+
 const Home = ({ setRecipeDetails }) => {
   const [recipes, setRecipes] = useState([]);
   const [title, setTitle] = useState();
@@ -61,7 +65,7 @@ const Home = ({ setRecipeDetails }) => {
 
   return (
     <div>
-      <Jumbotron>
+    <Jumbotron>
         <JumbotronText textAlign="center">
           Explore over <strong>2</strong> recipes With Frank.
         </JumbotronText>
@@ -84,6 +88,7 @@ const Home = ({ setRecipeDetails }) => {
           ))}
         </CuisineContainer>
       </Jumbotron>
+      <motion.div initial="out" animate="in" exit="out" variants={HomeVariant} transition={pageTransitions}>
       <HomeContainer>
         <RecipeContainer>
           <Header>
@@ -194,7 +199,8 @@ const Home = ({ setRecipeDetails }) => {
           ))}
         </RecipeContainer>
       </HomeContainer>
-    </div>
+      </motion.div>
+      </div>
   );
 };
 

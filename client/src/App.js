@@ -1,20 +1,21 @@
 import { useState } from "react";
 //components
-
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar.js";
 import Login from "./components/Login/Login";
 import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
 import SignUp from "./components/Login/SignUp.js";
-import FooterPremium from "./components/Footer/FooterPremium";
-import PreimumPage from "./components/PremiumFolder/PremiumPage"
+// import FooterPremium from "./components/Footer/FooterPremium";
+import PremiumPage from "./components/PremiumFolder/PremiumPage";
 import Footer from "./components/Footer/Footer";
+import "./App.css";
+
 //routes
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion"
 
-import "./App.css";
-import PremiumPage from "./components/PremiumFolder/PremiumPage";
-function App(props) {
+
+function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const [username, setUsername] = useState("");
@@ -36,7 +37,6 @@ function App(props) {
 
   const authUser = (e) => {
     e.preventDefault();
-    // navigate("/");
     if (!user || !password) {
       setAuthError(true);
       console.log("hey sign up");
@@ -76,12 +76,14 @@ function App(props) {
 
   return (
     <>
-      {location.pathname === "/login" || 
-      location.pathname === "/signup" || location.pathname === "/premium-page" ? null : (
+      {location.pathname === "/login" ||
+      location.pathname === "/signup" ||
+      location.pathname === "/premium-page" ? null : (
         <Navbar />
       )}
 
-      <Routes>
+        <AnimatePresence exitBeforeEnter >
+      <Routes loaction={location} key={location.pathname}>
         <Route
           exact
           path="/signup"
@@ -121,15 +123,10 @@ function App(props) {
           path="/recipes/:id"
           element={<RecipeDetails recipeDetails={recipeDetails} />}
         />
-      <Route
-        path="/premium-page"
-        element={<PremiumPage />}
-      />
+        <Route path="/premium-page" element={<PremiumPage />} />
       </Routes>
-     { 
-    <Footer />
-    }
-      
+        </AnimatePresence>
+      {<Footer />}
     </>
   );
 }
