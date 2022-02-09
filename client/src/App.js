@@ -76,8 +76,8 @@ function App(props) {
 
   return (
     <>
-      {location.pathname === "/login" ||
-      location.pathname === "/signup" ? null : (
+      {location.pathname === "/login" || 
+      location.pathname === "/signup" || location.pathname === "/premium-page" ? null : (
         <Navbar />
       )}
 
