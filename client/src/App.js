@@ -1,19 +1,16 @@
 import { useState } from "react";
 //components
-
 import Home from "./components/Home/Home";
-import Navbar from "./components/Navbar/Navbar.js";
+import NavBar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import RecipeDetails from "./components/RecipeDetails/RecipeDetails";
 import SignUp from "./components/Login/SignUp.js";
-import FooterPremium from "./components/Footer/FooterPremium";
-import PreimumPage from "./components/PremiumFolder/PremiumPage"
 import Footer from "./components/Footer/Footer";
+
 //routes
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import "./App.css";
-import PremiumPage from "./components/PremiumFolder/PremiumPage";
 function App(props) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -55,12 +52,6 @@ function App(props) {
     }
   };
 
-  const showErr = (authError) => {
-    if (authError) {
-      console.log("not authorized");
-    }
-    return null;
-  };
 
   const signUp = (e, user, password) => {
     e.preventDefault();
@@ -74,13 +65,11 @@ function App(props) {
     // document.getElementById("password").value = ""
   };
 
+
+
   return (
     <>
-      {location.pathname === "/login" || 
-      location.pathname === "/signup" || location.pathname === "/premium-page" ? null : (
-        <Navbar />
-      )}
-
+    <NavBar />
       <Routes>
         <Route
           exact
@@ -121,15 +110,9 @@ function App(props) {
           path="/recipes/:id"
           element={<RecipeDetails recipeDetails={recipeDetails} />}
         />
-      <Route
-        path="/premium-page"
-        element={<PremiumPage />}
-      />
       </Routes>
-     { 
-    <Footer />
-    }
-      
+
+      <Footer />
     </>
   );
 }

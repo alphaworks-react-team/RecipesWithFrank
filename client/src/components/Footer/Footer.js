@@ -1,59 +1,17 @@
-import React from 'react';
-import { BiCopyright } from 'react-icons/bi';
+import React from "react";
+import { BiCopyright } from "react-icons/bi";
 import {
   FaFacebookF,
   FaInstagram,
   FaPinterest,
   FaYoutube,
-} from 'react-icons/fa';
-import styled from 'styled-components';
+} from "react-icons/fa";
+import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
   height: 400px;
   background-color: rgb(252, 252, 164);
-
-`;
-
-const LogoContainer = styled.div`
-  width: 100%;
-  height: 140px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const LinkContainer1 = styled.div`
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-`;
-
-const LinkContainer2 = styled.div`
-  width: 100%;
-  height: 50px;
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 15px;
-`;
-
-const LineContainer = styled.div`
-  width: 100%;
-  height: 10px;
-  display: flex;
-  justify-content: center;
-`;
-
-const Line = styled.div`
-  width: 25%;
-  height: 1px;
-  background-color: lightgrey;
-  opacity: 50%;
 `;
 
 const SocialMedia = styled.div`
@@ -71,22 +29,6 @@ const CopyWrightText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const ButtonLink = styled.div`
-  width: 150px;
-  height: 35px;
-  /* background: white; */
-  background-color: rgb(252, 252, 164);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:hover {
-    color: rgb(25, 200, 140);
-    cursor: pointer;
-  }
 `;
 
 const Button = styled.div`
@@ -142,29 +84,7 @@ const ButtonATagRed = styled.a`
 const Footer = () => {
   return (
     <Container>
-{/*      <LogoContainer>Frank Foto</LogoContainer> */}      <LinkContainer1>
-        <ButtonLink>Featured Frank</ButtonLink>
-        <ButtonLink>Premium Frank's</ButtonLink>
-        <ButtonLink>Frank's Recipes</ButtonLink>
-        <ButtonLink>Frank's Cookbook</ButtonLink>
-        <ButtonLink>Frank's Articles</ButtonLink>
-        <ButtonLink>Frank Foods</ButtonLink>
-        <ButtonLink>Frank Support</ButtonLink>
-        <ButtonLink>Log In</ButtonLink>
-        <ButtonLink>Join For Free</ButtonLink>
-      </LinkContainer1>
-      <LinkContainer2>
-        <ButtonLink>Gift Cards</ButtonLink>
-        <ButtonLink>Support Center</ButtonLink>
-        <ButtonLink>Forums</ButtonLink>
-        <ButtonLink>Terms Of Service</ButtonLink>
-        <ButtonLink>Privacy Policy</ButtonLink>
-        <ButtonLink>Contact</ButtonLink>
-        <ButtonLink>System Status</ButtonLink>
-      </LinkContainer2>
-      <LineContainer>
-        <Line />
-      </LineContainer>
+
       <SocialMedia>
         <Button>
           <ButtonATagBlue>

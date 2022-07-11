@@ -16,7 +16,7 @@ import {
   HomeContainer,
   RecipeContainer,
   RecipeCard,
-  ImageContainer,
+  // ImageContainer,
   RecipeImage,
   RecipeDetailsContainer,
   RecipeDetailsWrapper,
@@ -93,9 +93,10 @@ const Home = ({ setRecipeDetails }) => {
           </Header>
           {recipes?.map((recipes, index) => (
             <RecipeCard key={index} onClick={() => getRecipeDetail(recipes.id)}>
-              <ImageContainer>
-                <RecipeImage src={recipes?.image} />
-              </ImageContainer>
+              {/*<ImageContainer> </ImageContainer>*/}
+
+              <RecipeImage src={recipes?.image} />
+
               <RecipeDetailsContainer>
                 <RecipeTitle>{recipes.title}</RecipeTitle>
                 <RecipeDetailsWrapper>
