@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const JumbotronText = styled.p`
   width: 950px;
   font-size: 26px;
   padding: 0;
   position: relative;
-  text-align: ${(props) => props.textAlign};
+  text-align: center;
 `;
 
 export const HomeContainer = styled.div`
@@ -15,7 +15,8 @@ export const HomeContainer = styled.div`
 `;
 
 export const RecipeContainer = styled.div`
-  width: 1200px;
+  display: table;
+  width: 100%;
   padding: 20px;
   background-color: beige;
   display: flex;
@@ -30,9 +31,10 @@ export const Header = styled.h1`
 `;
 
 export const RecipeCard = styled.div`
-  width: 500px;
+  /* width: 500px; */
+  display: table-cell;
   margin: 15px;
-  background-color: pink;
+  background-color: white;
   border-radius: 15px;
   display: inline-block;
   overflow: hidden;
@@ -60,7 +62,6 @@ export const RecipeDetailGroupWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  // width: 220px;
 `;
 
 export const RecipeDetailText = styled.p`
@@ -73,10 +74,10 @@ export const ToolTipText = styled.span`
   visibility: hidden;
   position: absolute;
   z-index: 1;
-  width: ${width => width};
+  width: ${(width) => width};
   bottom: 27px;
-  left: ${props => props.positionLeft};
-  background-color: ${props => props.backgroundColor};
+  left: ${(props) => props.positionLeft};
+  background-color: ${(props) => props.backgroundColor};
   color: white;
   padding: 5px;
   text-align: center;
@@ -85,14 +86,14 @@ export const ToolTipText = styled.span`
   transition: opacity 1.5s;
   font-style: italic;
   ::after {
-    content: ' ';
+    content: " ";
     position: absolute;
     top: 100%;
     left: 50%;
-    margin-left: ${props => props.ml};
+    margin-left: ${(props) => props.ml};
     border-width: 5px;
     border-style: solid;
-    border-color: ${props => props.backgroundColor} transparent transparent
+    border-color: ${(props) => props.backgroundColor} transparent transparent
       transparent;
   }
 `;
@@ -107,15 +108,11 @@ export const ToolTipBox = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div`
-  overflow: hidden;
-`;
-
 export const RecipeImage = styled.div`
-  width: 500px;
-  height: 300px;
+  width: 100%;
+  height: 238px;
   background-color: pink;
-  background-image: url(${props => props.src});
+  background-image: url(${(props) => props.src});
   background-position: center;
   background-size: cover;
   border-radius: 12px 12px 0 0;
@@ -130,7 +127,7 @@ export const CuisineButton = styled.div`
   padding: 5px;
   margin: 5px;
   background-color: rgba(255, 255, 255, 0.3);
-  font-color: white;
+  /* font-color: white; */
   position: relative;
   border-radius: 10px;
   &:hover {
