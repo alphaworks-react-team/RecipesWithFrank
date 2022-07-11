@@ -32,7 +32,6 @@ export const Header = styled.h1`
 
 export const RecipeCard = styled.div`
   /* width: 500px; */
-  display: table-cell;
   margin: 15px;
   background-color: white;
   border-radius: 15px;
@@ -48,6 +47,7 @@ export const RecipeDetailsContainer = styled.div`
 
 export const RecipeTitle = styled.h3`
   margin: 0;
+  width: 23rem;
   margin-bottom: 10px;
   color: grey;
 `;
@@ -111,7 +111,7 @@ export const ToolTipBox = styled.div`
 export const RecipeImage = styled.div`
   width: 100%;
   height: 238px;
-  background-color: pink;
+  background-color: whitesmoke;
   background-image: url(${(props) => props.src});
   background-position: center;
   background-size: cover;
@@ -127,11 +127,11 @@ export const CuisineButton = styled.div`
   padding: 5px;
   margin: 5px;
   background-color: rgba(255, 255, 255, 0.3);
-  /* font-color: white; */
   position: relative;
   border-radius: 10px;
   &:hover {
     cursor: pointer;
+    color: black ;
   }
 `;
 
@@ -141,4 +141,5 @@ export const CuisineContainer = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+
 `;
