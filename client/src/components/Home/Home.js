@@ -63,7 +63,7 @@ const Home = ({ setRecipeDetails }) => {
     <div>
       <Jumbotron>
         <JumbotronText textAlign="center">
-          Explore over <strong>2</strong> recipes With Frank.
+          Explore over <strong>1,000</strong> recipes With Frank.
         </JumbotronText>
         <Search
           getRecipeBySearch={getRecipeBySearch}
@@ -103,7 +103,7 @@ const Home = ({ setRecipeDetails }) => {
                   <RecipeDetailGroupWrapper>
                     <AiOutlineClockCircle
                       style={{ position: "relative", top: "1px", left: "2px" }}
-                      color="gray"
+                      color="black"
                       size="25px"
                       position="center"
                     />
@@ -112,7 +112,7 @@ const Home = ({ setRecipeDetails }) => {
                     </RecipeDetailText>
                     <AiOutlineFire
                       style={{ position: "relative", top: "1px", left: "2px" }}
-                      color="gray"
+                      color="orange"
                       size="25px"
                       position="center"
                     />
