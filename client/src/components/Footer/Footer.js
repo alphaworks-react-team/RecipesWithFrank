@@ -10,7 +10,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  height: 400px;
+  height: auto;
   background-color: rgb(252, 252, 164);
 `;
 
@@ -37,7 +37,6 @@ const Button = styled.div`
   margin: 15px;
   border-radius: 50px;
   background: #ffffff;
-  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
   font-size: 16px;
   font-weight: 700;
   display: flex;

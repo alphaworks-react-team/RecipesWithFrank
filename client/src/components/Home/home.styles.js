@@ -127,11 +127,11 @@ export const CuisineButton = styled.div`
   padding: 5px;
   margin: 5px;
   background-color: rgba(255, 255, 255, 0.3);
-  /* font-color: white; */
   position: relative;
   border-radius: 10px;
   &:hover {
     cursor: pointer;
+    color: black ;
   }
 `;
 
@@ -141,4 +141,5 @@ export const CuisineContainer = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+
 `;

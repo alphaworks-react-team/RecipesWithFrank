@@ -101,9 +101,11 @@ const IngredientCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: ease-out 1.5s ;
+  transition: ease-out 3ms ;
   &:hover{
     transform:scale(1.1) ;
+    border-bottom: 2px solid gold;
+
   }
   `;
 
