@@ -6,8 +6,8 @@ const DetailsContainer = styled.div`
   width: 60%;
   display: flex;
   justify-content: center;
- 
-  `;
+  font-family: "Edu SA Beginner", cursive;
+`;
 
 const DetailsJumbotron = styled.div`
   width: 100%;
@@ -16,7 +16,7 @@ const DetailsJumbotron = styled.div`
   margin-top: -20px;
   display: flex;
   justify-content: center;
-  `;
+`;
 
 const BodyContainer = styled.div`
   width: 100%;
@@ -24,19 +24,19 @@ const BodyContainer = styled.div`
   flex-flow: column;
   align-items: center;
   margin-bottom: 100px;
-  `;
+`;
 
 const CookingTime = styled.ul`
   width: 65%;
   display: flex;
   align-items: flex-end;
   height: 176px;
-  `;
+`;
 
 const CookingTimeItem = styled.li`
   list-style-type: none;
   padding: 0px 15px;
-  `;
+`;
 
 const TimeLabel = styled.div`
   margin-left: 35px;
@@ -44,13 +44,13 @@ const TimeLabel = styled.div`
   color: white;
   font-size: 17px;
   font-weight: bold;
-  `;
+`;
 
 const TimeValue = styled.div`
   color: white;
   font-size: 30px;
   font-weight: bold;
-  `;
+`;
 
 const FoodImage = styled.div`
   display: flex;
@@ -62,7 +62,7 @@ const FoodImage = styled.div`
   background-position: center;
   background-size: containt;
   background-repeat: no-repeat;
-  `;
+`;
 
 const RecipeHeaderContent = styled.div`
   display: flex;
@@ -70,21 +70,21 @@ const RecipeHeaderContent = styled.div`
   height: 352px;
   width: 398px;
   margin-top: 25px;
-  `;
+`;
 
 const RecipeTitle = styled.div`
   width: 535px;
   font-size: 50px;
   font-weight: bold;
-  `;
+  text-decoration:underline;
+`;
 
 const RecipeSummary = styled.div`
   width: 387px;
   font-size: 14px;
   overflow: auto;
   word-spacing: 7px;
-
-  `;
+`;
 
 const IngredientContainer = styled.div`
   width: 60%;
@@ -101,13 +101,12 @@ const IngredientCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: ease-out 3ms ;
-  &:hover{
-    transform:scale(1.1) ;
+  transition: ease-out 3ms;
+  &:hover {
+    transform: scale(1.1);
     border-bottom: 2px solid gold;
-
   }
-  `;
+`;
 
 const IngredientImage = styled.div`
   width: 75px;
@@ -117,7 +116,7 @@ const IngredientImage = styled.div`
   background-position: center;
   background-size: cover;
   display: flex;
-  `;
+`;
 
 const TitleCard = styled.div`
   width: 88%;
@@ -125,38 +124,39 @@ const TitleCard = styled.div`
   justify-content: space-between;
   font-size: 20px;
   font-weight: bold;
-
- 
-  `;
+`;
 
 const IngredientName = styled.div`
   margin-left: 50px;
 `;
 
 const IngredientDescription = styled.div`
-    padding-right: 10px;
+  padding-right: 10px;
 
   color: #6f737a;
-  `;
+`;
 
 const IngredientTitleContainer = styled.div`
-
   margin-top: 58px;
 `;
 
 const IngredientTitle = styled.div`
   font-size: 40px;
   font-weight: bold;
-
 `;
 
-
+const RecipeStepsContainer = styled(IngredientContainer)`
+  font-family: "Edu SA Beginner", cursive;
+  line-height: 29px;
+  margin-top: 20px;
+`;
 
 const StepsCard = styled.div`
+  font-weight: bold;
 `;
 
 const StepsDescription = styled.div`
-
+  text-indent: 6%;
 `;
 
 const RecipeDetails = ({ recipeDetails }) => {
@@ -222,20 +222,21 @@ const RecipeDetails = ({ recipeDetails }) => {
             </IngredientCard>
           ))}
         </IngredientContainer>
-        <IngredientContainer>
-          <IngredientTitleContainer>
+        <RecipeStepsContainer>
+          <RecipeStepsContainer>
             <IngredientTitle>Recipe Steps</IngredientTitle>
-          </IngredientTitleContainer>
+          </RecipeStepsContainer>
           {recipeDetails.analyzedInstructions[0].steps.map((steps, index) => (
             <div key={index}>
-              <StepsCard>Step {steps.number}</StepsCard>
-              <StepsDescription>{steps.step}</StepsDescription>
+              <StepsCard>Step: {steps.number}</StepsCard>
+              <StepsDescription >- {steps.step}</StepsDescription>
+              
               {/* <IngredientImage
                 src={`https://spoonacular.com/cdn/step_100x100/${steps.image}`}
               /> */}
             </div>
           ))}
-        </IngredientContainer>
+        </RecipeStepsContainer>
       </BodyContainer>
     </>
   );

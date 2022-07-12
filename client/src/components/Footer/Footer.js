@@ -83,13 +83,13 @@ const ButtonATagRed = styled.a`
 const Footer = () => {
   return (
     <Container>
-
       <SocialMedia>
         <Button>
           <ButtonATagBlue>
             <FaFacebookF />
           </ButtonATagBlue>
         </Button>
+
         <Button>
           <ButtonATagOrange>
             <FaInstagram />
