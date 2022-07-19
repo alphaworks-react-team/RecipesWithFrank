@@ -39,7 +39,7 @@ const Primary = ({ nav }) => {
       {/* Logo */}
       <Logo>
         <StyledLogoLink nav={nav} to="/">
-          Logo
+          Recipes With Frank
         </StyledLogoLink>
       </Logo>
     </>
